@@ -5,10 +5,9 @@ pub(crate) struct Registers {
     pub rbx: u64,
     pub rcx: u64,
     pub rdx: u64,
-    pub rsi: u64,
     pub rdi: u64,
+    pub rsi: u64,
     pub rbp: u64,
-    pub rsp: u64,
     pub r8: u64,
     pub r9: u64,
     pub r10: u64,
@@ -18,5 +17,6 @@ pub(crate) struct Registers {
     pub r14: u64,
     pub r15: u64,
     pub rip: u64,
+    pub rsp: u64,
     pub rflags: u64,
 }
