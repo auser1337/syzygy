@@ -74,13 +74,13 @@ fn efi_main() -> Status {
         )
     };
 
+    unsafe { svm::enable() }.expect("failed to enable SVM on BSP");
+
     let host_state_save_area_pa = memory;
     let mut vm_hsave_pa = msrs::VM_HSAVE_PA;
     unsafe {
         vm_hsave_pa.write(host_state_save_area_pa as u64);
     }
-
-    unsafe { svm::enable() }.expect("failed to enable SVM on BSP");
 
     // We start at 1 to skip the BSP (bootstrap processor)
     for processor_number in 1..enabled_processor_count {
